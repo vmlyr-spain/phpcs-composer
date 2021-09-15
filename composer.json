@@ -5,10 +5,10 @@
     "license": "MIT",
     "require": {
         "dealerdirect/phpcodesniffer-composer-installer": "*",
-        "phpcompatibility/phpcompatibility-wp": "^2",
-        "squizlabs/php_codesniffer": "3.5.*",
-        "wp-coding-standards/wpcs": "2.2.*",
-        "wptrt/wpthemereview": "0.2.*"
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "squizlabs/php_codesniffer": "3.*",
+        "wp-coding-standards/wpcs": "*",
+        "wptrt/wpthemereview": "*"
     },
     "prefer-stable" : true,
     "authors": [

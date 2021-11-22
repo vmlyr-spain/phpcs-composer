@@ -74,7 +74,9 @@
   <!-- Don't put unused function parameters into function definition -->
   <!-- This might be problematic when using wp actions/filters -->
   <!-- This is mostly useful, We should give warning instead -->
-  <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
+  <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter">
+    <type>warning</type>
+  </rule>
 
   <!-- No TODO comments, open issues in github/bitbucket/gitlab instead -->
   <rule ref="Generic.Commenting.Todo"/>

@@ -25,5 +25,10 @@
       "post-install-cmd": "@config-cs",
       "post-update-cmd": "@config-cs",
       "lint": "\"vendor/bin/phpcs\" . "
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     }
 }

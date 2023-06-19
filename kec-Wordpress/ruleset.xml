@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="kec-Default">
+<ruleset name="kec-Wordpress">
   <description>Coding Standards for Wordpress Projects</description>
   <rule ref="kec-Default" />
 

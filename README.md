@@ -5,12 +5,12 @@ Composer library to provide drop in installation and configuration of PHPCS, set
 ## Installation
 Add this repo to composer repositories list as vcs
 
-https://github.com/alexsancho/phpcs-composer.git
+https://github.com/vmlyr-spain/phpcs-composer.git
 
 Install the library via Composer:
 
 ```bash
-$ composer require --dev alexsancho/phpcs-composer:dev-master
+$ composer require --dev kec/phpcs-composer:dev-master
 ```
 
 ## Usage

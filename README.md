@@ -36,6 +36,25 @@ Some IDE integrations of PHPCS fail to register the `kec-Default` ruleset. In or
 ```xml
 <?xml version="1.0"?>
 <ruleset name="Project Rules">
+	<!-- For help in understanding this testVersion:
+	   https://github.com/PHPCompatibility/PHPCompatibility#sniffing-your-code-for-compatibility-with-specific-php-versions -->
+	<config name="testVersion" value="7.3-"/>
+
 	<rule ref="kec-Default" />
 </ruleset>
 ```
+
+Or if you are testing a WordPress plugin:
+
+```xml
+<?xml version="1.0"?>
+<ruleset name="Project Rules">
+	<!-- For help in understanding this testVersion:
+	   https://github.com/PHPCompatibility/PHPCompatibility#sniffing-your-code-for-compatibility-with-specific-php-versions -->
+	<config name="testVersion" value="7.3-"/>
+
+	<!-- Sets the minimum supported WP version to 4.7, which is over a year old. -->
+	<config name="minimum_supported_wp_version" value="4.7" />
+
+  <rule ref="kec-Wordpress" />
+</ruleset>```

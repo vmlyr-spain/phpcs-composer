@@ -96,9 +96,6 @@
       </properties>
     </rule>
 
-    <!-- Sets the minimum supported WP version to 4.7, which is over a year old. -->
-  	<config name="minimum_supported_wp_version" value="4.7" />
-
     <!-- Rules: Check PHP version compatibility:
         https://github.com/PHPCompatibility/PHPCompatibilityWP -->
     <rule ref="PHPCompatibilityWP" />

@@ -1,5 +1,6 @@
 {
     "name": "kec/phpcs-composer",
+    "abandoned": "vml/coding-standards",
     "type": "phpcodesniffer-standard",
     "version": "dev-master",
     "license": "MIT",

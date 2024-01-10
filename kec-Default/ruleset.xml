@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <ruleset name="kec-Default">
-  <description>Coding Standards for KEC Projects</description>
+	<description>Coding Standards for KEC Projects</description>
 
-  <exclude-pattern>*/dist/*</exclude-pattern>
+	<exclude-pattern>*/dist/*</exclude-pattern>
 	<exclude-pattern>*/languages/*</exclude-pattern>
 	<exclude-pattern>*/tests/*</exclude-pattern>
 
@@ -11,161 +11,166 @@
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 
 	<!-- Ensure certain file types aren't sniffed -->
-  <exclude-pattern>*\.(css|js)</exclude-pattern>
+	<exclude-pattern>*\.(css|js)</exclude-pattern>
 
-  <!-- Treat all files as UTF-8. -->
-  <config name="encoding" value="utf-8"/>
+	<!-- Treat all files as UTF-8. -->
+	<config name="encoding" value="utf-8"/>
 
-  <!-- Show colors in console -->
-  <arg value="-colors"/>
+	<!-- Show colors in console -->
+	<arg value="-colors"/>
 
-  <!-- Pass some flags to PHPCS:
-     p flag: Show progress of the run.
-     s flag: Show sniff codes in all reports.
-     v flag: Print verbose output.
-     n flag: Do not print warnings.
-    -->
-  <arg value="ps"/>
+	<!-- Pass some flags to PHPCS:
+	   p flag: Show progress of the run.
+	   s flag: Show sniff codes in all reports.
+	   v flag: Print verbose output.
+	   n flag: Do not print warnings.
+	  -->
+	<arg value="ps"/>
 
-  <!-- Check up to 8 files simultaneously. -->
-  <arg name="parallel" value="8"/>
+	<!-- Check up to 8 files simultaneously. -->
+	<arg name="parallel" value="8"/>
 
-  <!-- There MUST NOT be more than one statement per line. -->
+	<!-- There MUST NOT be more than one statement per line. -->
 
-  <!-- Don't worry about files that don't contain any code -->
+	<!-- Don't worry about files that don't contain any code -->
 	<rule ref="Internal.NoCodeFound">
 		<severity>0</severity>
 	</rule>
 
-  <!-- For CI, don't fail on warnings -->
-  	<config name="ignore_warnings_on_exit" value="1"/>
+	<!-- For CI, don't fail on warnings -->
+	<config name="ignore_warnings_on_exit" value="1"/>
 
-  <!--
-      Lines should not longer than $lineLimit (warning) and must not be longer than $absoluteLineLimit (error).
-      If $lineLimit and $absoluteLineLimit are configured to have the same value only one error is reported.
-      To turn of $absoluteLineLimit '0' can be used.
-      -->
-  <rule ref="Generic.Files.LineLength">
-    <properties>
-      <property name="lineLimit" value="210"/>
-      <property name="absoluteLineLimit" value="0"/>
-    </properties>
-  </rule>
+	<!--
+		Lines should not longer than $lineLimit (warning) and must not be longer than $absoluteLineLimit (error).
+		If $lineLimit and $absoluteLineLimit are configured to have the same value only one error is reported.
+		To turn of $absoluteLineLimit '0' can be used.
+		-->
+	<rule ref="Generic.Files.LineLength">
+		<properties>
+			<property name="lineLimit" value="210"/>
+			<property name="absoluteLineLimit" value="0"/>
+		</properties>
+	</rule>
 
-  <!-- All PHP files MUST use the Unix LF (linefeed) line ending. -->
-  <rule ref="Generic.Files.LineEndings">
-    <properties>
-      <property name="eolChar" value="\n"/>
-    </properties>
-  </rule>
+	<!-- All PHP files MUST use the Unix LF (linefeed) line ending. -->
+	<rule ref="Generic.Files.LineEndings">
+		<properties>
+			<property name="eolChar" value="\n"/>
+		</properties>
+	</rule>
 
-  <!-- There must be only on statement per line. -->
-  <rule ref="Generic.Formatting.DisallowMultipleStatements"/>
+	<!-- There must be only on statement per line. -->
+	<rule ref="Generic.Formatting.DisallowMultipleStatements"/>
 
-  <!-- Method arguments with default values MUST go at the end of the argument list. -->
-  <rule ref="PEAR.Functions.ValidDefaultValue"/>
+	<!-- Method arguments with default values MUST go at the end of the argument list. -->
+	<rule ref="PEAR.Functions.ValidDefaultValue"/>
 
-  <!-- This means almost always that developer used an ugly hotfix -->
-  <rule ref="Squiz.PHP.CommentedOutCode"/>
+	<!-- This means almost always that developer used an ugly hotfix -->
+	<rule ref="Squiz.PHP.CommentedOutCode"/>
 
-  <!-- Don't allow random whitespacing into multiple lines -->
-  <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
+	<!-- Don't allow random whitespacing into multiple lines -->
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
 
-  <!-- Don't put unused function parameters into function definition -->
-  <!-- This might be problematic when using wp actions/filters -->
-  <!-- This is mostly useful, We should give warning instead -->
-  <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter">
-    <type>warning</type>
-  </rule>
+	<!-- Don't put unused function parameters into function definition -->
+	<!-- This might be problematic when using wp actions/filters -->
+	<!-- This is mostly useful, We should give warning instead -->
+	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter">
+		<type>warning</type>
+	</rule>
 
-  <!-- No TODO comments, open issues in github/bitbucket/gitlab instead -->
-  <rule ref="Generic.Commenting.Todo"/>
+	<!-- No TODO comments, open issues in github/bitbucket/gitlab instead -->
+	<rule ref="Generic.Commenting.Todo"/>
 
-  <!-- Don't allow oneliner ifs without brackets {} -->
-  <rule ref="Generic.ControlStructures.InlineControlStructure"/>
+	<!-- Don't allow oneliner ifs without brackets {} -->
+	<rule ref="Generic.ControlStructures.InlineControlStructure"/>
 
-  <!-- No spaces before comma in function calls -->
-  <!-- This might be problematic when using wp actions/filters -->
-  <rule ref="Generic.Functions.FunctionCallArgumentSpacing.SpaceBeforeComma"/>
+	<!-- No spaces before comma in function calls -->
+	<!-- This might be problematic when using wp actions/filters -->
+	<rule ref="Generic.Functions.FunctionCallArgumentSpacing.SpaceBeforeComma"/>
 
-  <!-- <?php tags and constants (true,false,null) need to be lowercase  -->
-  <rule ref="Generic.PHP.LowerCaseKeyword"/>
-  <rule ref="Generic.PHP.LowerCaseConstant"/>
+	<!-- <?php tags and constants (true,false,null) need to be lowercase  -->
+	<rule ref="Generic.PHP.LowerCaseKeyword"/>
+	<rule ref="Generic.PHP.LowerCaseConstant"/>
 
-  <!-- Disallows usage of PHP 4 style constructors -->
-  <rule ref="Generic.NamingConventions.ConstructorName"/>
+	<!-- Disallows usage of PHP 4 style constructors -->
+	<rule ref="Generic.NamingConventions.ConstructorName"/>
 
-  <!-- Constants must be uppercase -->
-  <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+	<!-- Constants must be uppercase -->
+	<rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
 
-  <!--
-  Disallows the use of alias functions that are kept in PHP for compatibility with older versions.
-  Can be used to forbid the use of any function when creating your own Sniff class extending from this class.
-  -->
-  <rule ref="Generic.PHP.ForbiddenFunctions">
-      <properties>
-          <property name="error" value="false"/>
-      </properties>
-  </rule>
+	<!--
+	Disallows the use of alias functions that are kept in PHP for compatibility with older versions.
+	Can be used to forbid the use of any function when creating your own Sniff class extending from this class.
+	-->
+	<rule ref="Generic.PHP.ForbiddenFunctions">
+		<properties>
+			<property name="error" value="false"/>
+		</properties>
+	</rule>
 
-  <!-- Spaces, not tabs, must be used for indentation. -->
-  <rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
+	<!-- Spaces, not tabs, must be used for indentation. -->
+	<rule ref="Generic.WhiteSpace.DisallowTabIndent"/>
 
-  <!-- No PHP short open tags allowed. -->
-  <!-- Covers: https://github.com/Otto42/theme-check/blob/master/checks/phpshort.php -->
-  <rule ref="Generic.PHP.DisallowShortOpenTag"/>
+	<!-- No PHP short open tags allowed. -->
+	<!-- Covers: https://github.com/Otto42/theme-check/blob/master/checks/phpshort.php -->
+	<rule ref="Generic.PHP.DisallowShortOpenTag"/>
 
-  <!-- Alternative PHP open tags not allowed. -->
-  <rule ref="Generic.PHP.DisallowAlternativePHPTags"/>
+	<!-- Alternative PHP open tags not allowed. -->
+	<rule ref="Generic.PHP.DisallowAlternativePHPTags"/>
 
-  <!-- Files which start with a PHP open tag should have no whitespace preceding it. -->
-  <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.StartFile">
-    <message>To help prevent PHP "headers already send" errors, whitespace before the PHP open tag should be removed.</message>
-  </rule>
+	<!-- Files which start with a PHP open tag should have no whitespace preceding it. -->
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace.StartFile">
+		<message>To help prevent PHP "headers already send" errors, whitespace before the PHP open tag should be
+			removed.
+		</message>
+	</rule>
 
-  <!-- Files should omit the closing PHP tag at the end of a file. -->
-  <rule ref="PSR2.Files.ClosingTag.NotAllowed">
-    <type>warning</type>
-    <message>To help prevent PHP "headers already send" errors the PHP closing tag at the end of the file should be removed.</message>
-  </rule>
+	<!-- Files should omit the closing PHP tag at the end of a file. -->
+	<rule ref="PSR2.Files.ClosingTag.NotAllowed">
+		<type>warning</type>
+		<message>To help prevent PHP "headers already send" errors the PHP closing tag at the end of the file should be
+			removed.
+		</message>
+	</rule>
 
-  <!-- Mixed line endings are not allowed. -->
-  <!-- Covers: https://github.com/Otto42/theme-check/blob/master/checks/lineendings.php -->
-  <rule ref="Internal.LineEndings.Mixed">
-    <type>error</type>
-  </rule>
+	<!-- Mixed line endings are not allowed. -->
+	<!-- Covers: https://github.com/Otto42/theme-check/blob/master/checks/lineendings.php -->
+	<rule ref="Internal.LineEndings.Mixed">
+		<type>error</type>
+	</rule>
 
-  <!-- No minification of scripts or files unless you provide original files. -->
-  <!-- Covers: https://make.wordpress.org/themes/handbook/review/required/#stylesheets-and-scripts -->
-  <rule ref="Internal.Tokenizer.Exception">
-    <message>File appears to be minified and cannot be processed. The non-minified file must be included too.</message>
-  </rule>
+	<!-- No minification of scripts or files unless you provide original files. -->
+	<!-- Covers: https://make.wordpress.org/themes/handbook/review/required/#stylesheets-and-scripts -->
+	<rule ref="Internal.Tokenizer.Exception">
+		<message>File appears to be minified and cannot be processed. The non-minified file must be included too.
+		</message>
+	</rule>
 
-  <!-- No ByteOrderMark allowed - important to prevent issues with content being sent before headers. -->
-  <rule ref="Generic.Files.ByteOrderMark"/>
+	<!-- No ByteOrderMark allowed - important to prevent issues with content being sent before headers. -->
+	<rule ref="Generic.Files.ByteOrderMark"/>
 
-  <!-- Control structures which don't do anything are not very useful. -->
-  <rule ref="Generic.CodeAnalysis.EmptyStatement"/>
+	<!-- Control structures which don't do anything are not very useful. -->
+	<rule ref="Generic.CodeAnalysis.EmptyStatement"/>
 
-  <!-- Do not silence error notices. e.g. Error Control Operator @.. -->
-  <rule ref="Generic.PHP.NoSilencedErrors">
-    <properties>
-      <property name="error" value="true"/>
-    </properties>
-  </rule>
+	<!-- Do not silence error notices. e.g. Error Control Operator @.. -->
+	<rule ref="Generic.PHP.NoSilencedErrors">
+		<properties>
+			<property name="error" value="true"/>
+		</properties>
+	</rule>
 
-  <!-- Prohibit the use of the backtick operator. -->
-  <rule ref="Generic.PHP.BacktickOperator"/>
+	<!-- Prohibit the use of the backtick operator. -->
+	<rule ref="Generic.PHP.BacktickOperator"/>
 
-  <!-- Prohibit the use of the eval() PHP language construct. -->
-  <rule ref="Squiz.PHP.Eval.Discouraged">
-    <type>error</type>
-    <message>eval() is a security risk so not allowed.</message>
-  </rule>
+	<!-- Prohibit the use of the eval() PHP language construct. -->
+	<rule ref="Squiz.PHP.Eval.Discouraged">
+		<type>error</type>
+		<message>eval() is a security risk so not allowed.</message>
+	</rule>
 
-  <!-- Prohibit the use of the `goto` PHP language construct. -->
-  <rule ref="Generic.PHP.DiscourageGoto.Found">
-    <type>error</type>
-    <message>The "goto" language construct should not be used.</message>
-  </rule>
+	<!-- Prohibit the use of the `goto` PHP language construct. -->
+	<rule ref="Generic.PHP.DiscourageGoto.Found">
+		<type>error</type>
+		<message>The "goto" language construct should not be used.</message>
+	</rule>
 </ruleset>
